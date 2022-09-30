@@ -1,0 +1,316 @@
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="icon" type="image/png" href="sprites/icons/moneda.png" />
+    <audio id="clicksound" class="sound" controls>
+      <source src="sounds/click.wav">
+    </audio>
+    <audio id="buyitemsound" class="sound" controls>
+      <source src="sounds/buyitem.wav">
+    </audio>
+    <audio id="buyupgradesound" class="sound" controls>
+      <source src="sounds/buyupgrade.wav">
+    </audio>
+    <meta charset="utf-8">
+    <title id="title">Bitcoin Clicker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="game.js"></script>
+  </head>
+  <body>
+    <div class="title">
+      <ul class="menu">
+        <li><button class='menubutton'>ESTADÍSTICAS</button></li>
+        <li><button class='menubutton'>OPCIONES</button></li>
+        <li><button class='resetbutton' onclick="reset();">REINICIAR PROGRESO</button></li>
+
+      </ul>
+      <div class="titlecontainer">
+        <img src="sprites/logo.png" alt="Logotipo de BitcoinClicker" width=80px><strong>itcoin Clicker</strong>
+      </div>
+
+    </div>
+    <div class="coins">
+      <div class="imgcontainer">
+        <img src="sprites/icons/moneda.png" alt="Coins: " width="50px">
+      </div>
+      <div class="coinscountercontainer">
+          <h2 id="coinscounter">0 (0/s)</h2>
+      </div>
+    </div>
+    <div class="bitcoins">
+      <div class="imgcontainer">
+          <img src="sprites/icons/bitcoin.png" alt="Bitcoins: " width="50px">
+      </div>
+      <div class="bitcoinscountercontainer">
+          <h2 id="bitcoinscounter">0</h2>
+      </div>
+
+    </div>
+
+    <div class="shoptitle">
+      <h2>TIENDA</h2>
+    </div>
+
+    <div class="upgradestitle">
+      <h2>MEJORAS</h2>
+    </div>
+
+    <div class="game">
+      <img src="sprites/icons/moneda.png" onclick="clic();" width="400px"/>
+    </div>
+
+    <div class="shop">
+      <ul>
+        <li>
+          <button class="tooltip" id="0" onclick="comprar(0)" >
+            <img src="sprites/icons/005-owner.png" alt="X" width="64px"/>
+            <h3 id="item0">
+              ASISTENTE (0)
+            </h3>
+            <div class="ps" id="ps0">
+              0.1 coins/s
+            </div>
+            <div class="price" id="price0">
+              15$
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="1" onclick="comprar(1)">
+            <img src="sprites/icons/008-commodity.png" alt="X" width="64px" >
+            <h3 id="item1">
+              ???
+            </h3>
+            <div class="ps" id="ps1">
+              ??? coins/s
+            </div>
+            <div class="price" id="price1">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="2" onclick="comprar(2)">
+            <img src="sprites/icons/028-startup.png" alt="X" width="64px" >
+            <h3 id="item2">
+              ???
+            </h3>
+            <div class="ps" id="ps2">
+              ??? coins/s
+            </div>
+            <div class="price" id="price2">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="3" onclick="comprar(3)">
+            <img src="sprites/icons/015-investment.png" alt="X" width="64px" >
+            <h3 id="item3">
+              ???
+            </h3>
+            <div class="ps" id="ps3">
+              ??? coins/s
+            </div>
+            <div class="price" id="price3">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="4" onclick="comprar(4)">
+            <img src="sprites/icons/023-rental.png" alt="X" width="64px" >
+            <h3 id="item4">
+              ???
+            </h3>
+            <div class="ps" id="ps4">
+              ??? coins/s
+            </div>
+            <div class="price" id="price4">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="5" onclick="comprar(5)">
+            <img src="sprites/icons/022-real estate.png" alt="X" width="64px" >
+            <h3 id="item5">
+              ???
+            </h3>
+            <div class="ps" id="ps5">
+              ??? coins/s
+            </div>
+            <div class="price" id="price5">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="6" onclick="comprar(6)">
+            <img src="sprites/icons/029-stock.png" alt="X" width="64px" >
+            <h3 id="item6">
+              ???
+            </h3>
+            <div class="ps" id="ps6">
+              ??? coins/s
+            </div>
+            <div class="price" id="price6">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="7" onclick="comprar(7)">
+            <img src="sprites/icons/007-certificate.png" alt="X" width="64px" >
+            <h3 id="item7">
+              ???
+            </h3>
+            <div class="ps" id="ps7">
+              ??? coins/s
+            </div>
+            <div class="price" id="price7">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="8" onclick="comprar(8)">
+            <img src="sprites/icons/004-bottom.png" alt="X" width="64px" >
+            <h3 id="item8">
+              ???
+            </h3>
+            <div class="ps" id="ps8">
+              ??? coins/s
+            </div>
+            <div class="price" id="price8">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="9" onclick="comprar(9)">
+            <img src="sprites/icons/009-cryptocurrencies.png" alt="X" width="64px" >
+            <h3 id="item9">
+              ???
+            </h3>
+            <div class="ps" id="ps9">
+              ??? coins/s
+            </div>
+            <div class="price" id="price9">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="10" onclick="comprar(10)">
+            <img src="sprites/icons/003-bond.png" alt="X" width="64px" >
+            <h3 id="item10">
+              ???
+            </h3>
+            <div class="ps" id="ps10">
+              ??? coins/s
+            </div>
+            <div class="price" id="price10">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="11" onclick="comprar(11)">
+            <img src="sprites/icons/027-security.png" alt="X" width="64px" >
+            <h3 id="item11">
+              ???
+            </h3>
+            <div class="ps" id="ps11">
+              ??? coins/s
+            </div>
+            <div class="price" id="price11">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="12" onclick="comprar(12)">
+            <img src="sprites/icons/014-insurance.png" alt="X" width="64px" >
+            <h3 id="item12">
+              ???
+            </h3>
+            <div class="ps" id="ps12">
+              ??? coins/s
+            </div>
+            <div class="price" id="price12">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="13" onclick="comprar(13)">
+            <img src="sprites/icons/017-market.png" alt="X" width="64px" >
+            <h3 id="item13">
+              ???
+            </h3>
+            <div class="ps" id="ps13">
+              ??? coins/s
+            </div>
+            <div class="price" id="price13">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="14" onclick="comprar(14)">
+            <img src="sprites/icons/006-cash.png" alt="X" width="64px" >
+            <h3 id="item14">
+              ???
+            </h3>
+            <div class="ps" id="ps14">
+              ??? coins/s
+            </div>
+            <div class="price" id="price14">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="15" onclick="comprar(15)">
+            <img src="sprites/icons/002-bank.png" alt="X" width="64px" >
+            <h3 id="item15">
+              ???
+            </h3>
+            <div class="ps" id="ps15">
+              ??? coins/s
+            </div>
+            <div class="price" id="price15">
+              ???
+            </div>
+          </button>
+        </li>
+        <li>
+          <button class="tooltip" id="16" onclick="comprar(16)">
+            <img src="sprites/icons/030-venture.png" alt="X" width="64px" >
+            <h3 id="item16">
+              ???
+            </h3>
+            <div class="ps" id="ps16">
+              ??? coins/s
+            </div>
+            <div class="price" id="price16">
+              ???
+            </div>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="upgrades">
+      <ul id="upgrades">
+
+      </ul>
+    </div>
+
+
+
+
+
+
+  </body>
+</html>
